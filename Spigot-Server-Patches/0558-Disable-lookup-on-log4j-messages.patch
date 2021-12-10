@@ -1,0 +1,47 @@
+From 2624bc156876fa93f507fe9acd7d24c5f527cf3d Mon Sep 17 00:00:00 2001
+From: amit177 <8685831+amit177@users.noreply.github.com>
+Date: Sat, 11 Dec 2021 01:45:31 +0200
+Subject: [PATCH] Disable lookup on log4j messages
+
+---
+ src/main/resources/log4j2.xml | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/src/main/resources/log4j2.xml b/src/main/resources/log4j2.xml
+index 8af159abd..6ebde61c9 100644
+--- a/src/main/resources/log4j2.xml
++++ b/src/main/resources/log4j2.xml
+@@ -2,25 +2,25 @@
+ <Configuration status="WARN" packages="com.mojang.util" shutdownHook="disable">
+     <Appenders>
+         <Queue name="ServerGuiConsole">
+-            <PatternLayout pattern="[%d{HH:mm:ss} %level]: %msg%n" />
++            <PatternLayout pattern="[%d{HH:mm:ss} %level]: %msg{nolookups}%n" />
+         </Queue>
+         <TerminalConsole name="TerminalConsole">
+             <PatternLayout>
+-                <LoggerNamePatternSelector defaultPattern="%highlightError{[%d{HH:mm:ss} %level]: [%logger] %minecraftFormatting{%msg}%n%xEx{full}}">
++                <LoggerNamePatternSelector defaultPattern="%highlightError{[%d{HH:mm:ss} %level]: [%logger] %msg{nolookups}%n%xEx{full}}">
+                     <!-- Log root, Minecraft, Mojang and Bukkit loggers without prefix -->
+                     <!-- Disable prefix for various plugins that bypass the plugin logger -->
+                     <PatternMatch key=",net.minecraft.,Minecraft,com.mojang.,com.sk89q.,ru.tehkode.,Minecraft.AWE"
+-                                  pattern="%highlightError{[%d{HH:mm:ss} %level]: %minecraftFormatting{%msg}%n%xEx{full}}" />
++                                  pattern="%highlightError{[%d{HH:mm:ss} %level]: %msg{nolookups}%n%xEx{full}}" />
+                 </LoggerNamePatternSelector>
+             </PatternLayout>
+         </TerminalConsole>
+         <RollingRandomAccessFile name="File" fileName="logs/latest.log" filePattern="logs/%d{yyyy-MM-dd}-%i.log.gz">
+             <PatternLayout>
+-                <LoggerNamePatternSelector defaultPattern="[%d{HH:mm:ss}] [%t/%level]: [%logger] %minecraftFormatting{%msg}{strip}%n%xEx{full}">
++                <LoggerNamePatternSelector defaultPattern="[%d{HH:mm:ss}] [%t/%level]: [%logger] %msg{nolookups}{strip}%n%xEx{full}">
+                     <!-- Log root, Minecraft, Mojang and Bukkit loggers without prefix -->
+                     <!-- Disable prefix for various plugins that bypass the plugin logger -->
+                     <PatternMatch key=",net.minecraft.,Minecraft,com.mojang.,com.sk89q.,ru.tehkode.,Minecraft.AWE"
+-                                  pattern="[%d{HH:mm:ss}] [%t/%level]: %minecraftFormatting{%msg}{strip}%n%xEx{full}" />
++                                  pattern="[%d{HH:mm:ss}] [%t/%level]: %msg{nolookups}{strip}%n%xEx{full}" />
+                 </LoggerNamePatternSelector>
+             </PatternLayout>
+             <Policies>
+-- 
+2.30.2
+
