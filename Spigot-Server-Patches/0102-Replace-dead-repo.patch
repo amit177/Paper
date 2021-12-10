@@ -1,0 +1,30 @@
+From beff385bdc5a95052547da11596caabfa9a9800b Mon Sep 17 00:00:00 2001
+From: amit177 <8685831+amit177@users.noreply.github.com>
+Date: Fri, 10 Dec 2021 17:19:55 +0200
+Subject: [PATCH] Replace dead repo
+
+---
+ pom.xml | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/pom.xml b/pom.xml
+index 609000df..feec6386 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -103,10 +103,10 @@
+             <id>spigotmc-public</id>
+             <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
+         </pluginRepository>
+-        <!-- PaperSpigot - Repo for gitdescribe -->
++        <!-- Repo for gitdescribe -->
+         <pluginRepository>
+-            <id>destroystokyo</id>
+-            <url>https://ci.destroystokyo.com/plugin/repository/everything/</url>
++            <id>central</id>
++            <url>https://repo1.maven.org/maven2/</url>
+         </pluginRepository>
+     </pluginRepositories>
+ 
+-- 
+2.30.2
+
