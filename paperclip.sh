@@ -5,7 +5,7 @@ cp ./work/1.8.8/1.8.8.jar ./Paperclip/minecraft_server.1.8.8.jar
 cd ./Paperclip
 mvn clean package
 cd ..
-cp ./Paperclip/target/paperclip*-SNAPSHOT.jar ./Paperclip.jar
+cp ./Paperclip/assembly/target/paperclip-1.8.8.jar ./Paperclip.jar
 
 echo ""
 echo ""
