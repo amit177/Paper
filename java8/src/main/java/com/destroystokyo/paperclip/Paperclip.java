@@ -33,7 +33,7 @@ class Paperclip {
 
     static File paperJar;
 
-    static void run(final String[] args) {
+    public static void main(String[] args) {
         try {
             digest = MessageDigest.getInstance("SHA-256");
         } catch (NoSuchAlgorithmException e) {

@@ -33,9 +33,9 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <mcVersion>${mcver}</mcVersion>
-                            <vanillaMinecraft>${vanillajar}</vanillaMinecraft>
-                            <paperMinecraft>${paperjar}</paperMinecraft>
+                            <mcVersion>1.8.8</mcVersion>
+                            <vanillaMinecraft>${project.basedir}/../minecraft_server.1.8.8.jar</vanillaMinecraft>
+                            <paperMinecraft>${project.basedir}/../paperspigot-1.8.8.jar</paperMinecraft>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -43,7 +43,7 @@
         </profile>
     </profiles>
     <build>
-        <finalName>paperclip-${mcver}</finalName>
+        <finalName>paperclip-1.8.8</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -75,7 +75,7 @@
                             </descriptors>
                             <archive>
                                 <manifestEntries>
-                                    <Main-Class>com.destroystokyo.paperclip.Main</Main-Class>
+                                    <Main-Class>com.destroystokyo.paperclip.Paperclip</Main-Class>
                                     <Multi-Release>true</Multi-Release>
                                     <Launcher-Agent-Class>com.destroystokyo.paperclip.Agent</Launcher-Agent-Class>
                                 </manifestEntries>
